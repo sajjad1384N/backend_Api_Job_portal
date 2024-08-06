@@ -21,11 +21,11 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(urlencoded({extended:true}));
 app.use(cookieParser());
-const corsOptions = {
+app.use(cors({
     origin:true,
+    methods:[ "GET","POST","PUT","DELETE"],
     credentials:true
-}
-app.use(cors(corsOptions));
+  }))
 
 // api's route
 app.use("/api/v1/user", userRoute);
